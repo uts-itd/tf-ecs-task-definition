@@ -104,11 +104,6 @@ variable "ipc_mode" {
   description = "The IPC resource namespace to use for the containers in the task"
 }
 
-variable "links" {
-  default     = []
-  description = "The link parameter allows containers to communicate with each other without the need for port mappings"
-  type        = list(string)
-}
 
 # variable "linuxParameters" {
 #   default     = {}

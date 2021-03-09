@@ -14,7 +14,6 @@
   "hostname": "${hostname}",
   "image": "${image}",
   "interactive": ${interactive},
-  "links": ${links},
   "logConfiguration": ${logConfiguration},
   "memory": ${memory},
   "memoryReservation": ${memoryReservation},
