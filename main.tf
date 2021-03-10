@@ -2,7 +2,8 @@
 
 resource "aws_ecs_task_definition" "ecs_task_definition" {
   container_definitions = local.container_definitions
-  execution_role_arn    = var.execution_role_arn
+  execution_role_arn       = aws_iam_role.ecs_execution.arn
+  task_role_arn            = aws_iam_role.ecs_task.arn
   family                = var.family
   ipc_mode              = var.ipc_mode
   network_mode          = var.network_mode
@@ -25,7 +26,6 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
     }
   }
   requires_compatibilities = var.requires_compatibilities
-  task_role_arn            = var.task_role_arn
   dynamic "volume" {
     for_each = var.volumes
     content {
