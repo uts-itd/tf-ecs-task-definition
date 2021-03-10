@@ -34,7 +34,7 @@ data "aws_iam_policy_document" "ecs_execution" {
         "ssm:GetParameters",
         "secretsmanager:GetSecretValue",
       ]
-      resources = local.secrets.*.valueFrom
+      resources = ["*"]
     }
   }
 }
