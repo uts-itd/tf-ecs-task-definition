@@ -256,3 +256,9 @@ variable "workingDirectory" {
   default     = ""
   description = "The working directory in which to run commands inside the container"
 }
+
+variable "task_policy_json" {
+  type        = string
+  description = "Optional; A JSON formated IAM policy providing the running container with permissions."
+  default     = null
+}
