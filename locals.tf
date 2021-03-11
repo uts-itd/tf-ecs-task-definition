@@ -22,7 +22,7 @@ locals {
     "false",
   )
   systemControls = jsonencode(var.systemControls)
-  subnet_ids_provided = var.private_subnet_ids != null && var.public_subnet_ids != null
+  subnet_ids_provided = var.private_subnet_ids != null
   vpc_id              = var.vpc_id != null ? var.vpc_id : data.aws_vpc.default[0].id
 }
 
