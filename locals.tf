@@ -22,6 +22,8 @@ locals {
     "false",
   )
   systemControls = jsonencode(var.systemControls)
+  subnet_ids_provided = var.private_subnet_ids != null && var.public_subnet_ids != null
+  vpc_id              = var.vpc_id != null ? var.vpc_id : data.aws_vpc.default[0].id
 }
 
 data "template_file" "container_definition" {
@@ -59,4 +61,15 @@ data "template_file" "container_definition" {
     user                   = var.user == "" ? "null" : var.user
     workingDirectory       = var.workingDirectory == "" ? "null" : var.workingDirectory
   }
+}
+
+
+data "aws_vpc" "default" {
+  count   = local.subnet_ids_provided ? 0 : 1
+  default = true
+}
+
+data "aws_subnet_ids" "default" {
+  count  = local.subnet_ids_provided ? 0 : 1
+  vpc_id = local.vpc_id
 }
