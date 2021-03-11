@@ -262,3 +262,37 @@ variable "task_policy_json" {
   description = "Optional; A JSON formated IAM policy providing the running container with permissions."
   default     = null
 }
+variable "desired_capacity" {
+  type        = number
+  description = "Optional; The desired number of containers running in the service. Default is 1."
+  default     = 1
+}
+variable "platform_version" {
+  type        = string
+  description = "Optional; The ECS backend platform version; Defaults to 1.4.0 so EFS is supported."
+  default     = "1.4.0"
+}
+
+variable "alb_arn"{
+  type = string
+  description = "Required, alb arn"
+  default = ""
+}
+
+variable "container_port" {
+  type        = number
+  description = "Optional; the port the container listens on."
+  default     = 80
+}
+
+variable "private_subnet_ids" {
+  type        = list(string)
+  description = "Optional; A set of subnet ID's that will be associated with the Farage service. By default the module will use the default vpc's public subnets."
+  default     = ["subnet-02bfbf99cdabab086", "subnet-0bcd16c3e147d5c98"]//["subnet-0d5a87b1da974abda", "subnet-0e189fca847b40e55"] //["subnet-02bfbf99cdabab086", "subnet-0bcd16c3e147d5c98"]
+}
+
+variable "vpc_id" {
+  type = "string"
+  description = "Optional; The VPC Id in which resources will be provisioned. Default is the default AWS vpc."
+  default     = "vpc-0784feee283d827ab"
+}
