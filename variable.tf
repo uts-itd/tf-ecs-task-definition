@@ -296,3 +296,9 @@ variable "vpc_id" {
   description = "Optional; The VPC Id in which resources will be provisioned. Default is the default AWS vpc."
   default     = "vpc-0784feee283d827ab"
 }
+
+variable "alb_sg" {
+  type = "string"
+  default = ""
+  description = "security group for alb sg"
+}
