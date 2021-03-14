@@ -1,7 +1,7 @@
 resource "aws_ecs_service" "fargate" {
   name                               = var.family
   cluster                            = "arn:aws:ecs:${local.region}:${local.account_id}:cluster/${var.cluster_name}"
-  task_definition                    = aws_ecs_task_definition.ecs_task_definition.arn
+  task_definition                    = aws_ecs_task_definition.ecs_task_definition[0].arn
   desired_count                      = var.desired_capacity
   deployment_maximum_percent         = 200
   deployment_minimum_healthy_percent = 100

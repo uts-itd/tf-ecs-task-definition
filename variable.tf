@@ -302,3 +302,12 @@ variable "alb_sg" {
   default = ""
   description = "security group for alb sg"
 }
+variable "security_group_ids" {
+  type = list(string)
+  default = []
+}
+
+variable "cluster_name" {
+  type = string
+  default = "CETAppCluster"
+}
