@@ -132,7 +132,7 @@ variable "container_definition" {
 }
 
 variable "create_service" {
-  type  = "bool"
+  type  = bool
   default = true
 }
 
