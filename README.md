@@ -18,18 +18,18 @@ Invoking the commands defined below creates an ECS task definition :
 This module is dependent of tf-ecs-container-definition repo to create containers in task definition.
 
 ## Inputs
-
 | Name | Description | Type | Default | Required |
-| cpu | The number of cpu units reserved for the container | `number` | `0` | no |
-| memory | The hard limit (in MiB) of memory to present to the container | `number` | `0` | no |
-| family | You must specify a family for a task definition, which allows you to track multiple versions of the same task definition | `any` | n/a | yes |
-| ipc\_mode | The IPC resource namespace to use for the containers in the task | `string` | `"host"` | no |
-| network\_mode | The Docker networking mode to use for the containers in the task | `string` | `"bridge"` | no |
-| pid\_mode | The process namespace to use for the containers in the task | `string` | `"host"` | no |
-| placement\_constraints | An array of placement constraint objects to use for the task | `list(string)` | `[]` | no |
-| register\_task\_definition | Registers a new task definition from the supplied family and containerDefinitions | `bool` | `true` | no |
-| tags | The metadata that you apply to the task definition to help you categorize and organize them | `map(string)` | `{}` | no |
-| volumes | A list of volume definitions in JSON format that containers in your task may use | `list(any)` | `[]` | no |
+|------|-----------------------------------------------------|--------|---------|----------|
+| cpu | The number of cpu units reserved for the container | number | 0 | no |
+| memory | The hard limit (in MiB) of memory to present to the container | number | 0 | no |
+| family | You must specify a family for a task definition, which allows you to track multiple versions of the same task definition | any | n/a | yes |
+| ipc_mode | The IPC resource namespace to use for the containers in the task | string | "host" | no |
+| network_mode | The Docker networking mode to use for the containers in the task | string | "bridge" | no |
+| pid_mode | The process namespace to use for the containers in the task | string | "host" | no |
+| placement_constraints | An array of placement constraint objects to use for the task | list(string) | [] | no |
+| register_task_definition | Registers a new task definition from the supplied family and containerDefinitions | bool | true | no |
+| tags | The metadata that you apply to the task definition to help you categorize and organize them | map(string) | {} | no |
+| volumes | A list of volume definitions in JSON format that containers in your task may use | list(any) | [] | no |
 
 ## Outputs
 
