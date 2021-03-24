@@ -1,9 +1,9 @@
 
 
 resource "aws_ecs_task_definition" "ecs_task_definition" {
-  container_definitions = local.container_definitions
-  execution_role_arn       = aws_iam_role.ecs_execution.arn
-  task_role_arn            = aws_iam_role.ecs_task.arn
+  container_definitions = var.container_definition
+  execution_role_arn    = aws_iam_role.ecs_execution.arn
+  task_role_arn         = aws_iam_role.ecs_task.arn
   family                = var.family
   ipc_mode              = var.ipc_mode
   network_mode          = var.network_mode

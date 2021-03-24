@@ -1,7 +1,8 @@
 resource "aws_ecs_service" "fargate" {
+  count                              = var.create_service ? 1 : 0
   name                               = var.family
   cluster                            = "arn:aws:ecs:${local.region}:${local.account_id}:cluster/${var.cluster_name}"
-  task_definition                    = aws_ecs_task_definition.ecs_task_definition[0].arn
+  task_definition                    = aws_ecs_task_definition.ecs_task_definition[count.index].arn
   desired_count                      = var.desired_capacity
   deployment_maximum_percent         = 200
   deployment_minimum_healthy_percent = 100
@@ -15,7 +16,7 @@ resource "aws_ecs_service" "fargate" {
   }
 
   load_balancer {
-    target_group_arn = var.alb_arn//aws_lb_target_group.alb.arn
+    target_group_arn = var.alb_arn
     container_name   = var.family
     container_port   = var.container_port
   }
