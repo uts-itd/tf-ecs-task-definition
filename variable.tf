@@ -123,7 +123,7 @@ variable "security_group_ids" {
 
 variable "cluster_name" {
   type    = string
-  default = "CETAppCluster"
+  default = ""
 }
 
 variable "container_definition" {
@@ -134,4 +134,16 @@ variable "container_definition" {
 variable "create_service" {
   type  = "bool"
   value = true
+}
+
+variable "requires_compatibilities" {
+  default     = []
+  description = "The launch type required by the task"
+  type        = list(string)
+}
+
+variable "secrets" {
+  default     = []
+  description = "The secrets to pass to the container"
+  type        = list(map(string))
 }

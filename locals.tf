@@ -3,6 +3,7 @@ locals {
   vpc_id              = var.vpc_id != null ? var.vpc_id : data.aws_vpc.default[0].id
   region              = "ap-southeast-2"
   account_id          = data.aws_caller_identity.current.account_id
+  secrets             = jsonencode(var.secrets)
 }
 
 data "aws_vpc" "default" {
